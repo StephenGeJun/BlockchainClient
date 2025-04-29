@@ -11,6 +11,7 @@ This project is a simple blockchain client written in Go. It provides basic func
   - `GET /block/<number>` - returns the block details for the specified block number. The block number can be provided in decimal or hex format (e.g., `12345` or `0x3039`).
 
 ## Project Structure
+```
 BlockchainClient/
 ├── README.md
 ├── go.mod
@@ -23,7 +24,7 @@ BlockchainClient/
     ├── main.tf
     ├── variables.tf
     └── outputs.tf
-
+```
 ## Getting Started
 
 ### Prerequisites
