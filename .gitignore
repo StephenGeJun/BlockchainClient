@@ -1,0 +1,36 @@
+# Go build outputs
+/bin/
+/build/
+/dist/
+/out/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+BlockchainClient
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Go modules cache
+/pkg/mod/
+
+# Local Go tools
+.gopls/
+.vscode/
+.idea/
+
+# Terraform generated files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+crash.log
+*.tfplan
+
+# Logs
+*.log
