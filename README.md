@@ -69,3 +69,26 @@ Once the server is running, you can query it:
 1. `terraform init`
 2. `terraform plan --out=tf.plan --var-file=ecs.tfvars`
 3. `terraform apply tf.plan`
+
+### App release
+**Before production release, you should deploy the app to dev and stg environments sequentially, and do some testing in the relevant environment. Once the testing is completed without any issues, then create a CR and proceed to the prod release. And some recommendations about your CI and CD workflow.**
+**CI**
+1. `Using SonarQube for SAST`
+2. `Using Checkmax or Cyberflow for DAST`
+3. `Using Trivy for Dockerfile and image scanning, ECR can also scan the image.`
+4. `Unit testing in DEV, regression testing and performance testing in STG, integration testing in DEV and STG`
+
+**CD**
+1. `Using ArgoCD for gitops, handle the rollout and rollback process, and can also use Argo Rollout to make the canary release or blue-green release`
+2. `Using Kargo for app promotion from dev to prod`
+
+**Infra and IaC**
+1. `If you use the TFE, you can integrate the TFE with WIZ or other scanning tools by RunTask for the terraform workflow scanning. Using Terraform Sentinel for the policy control of the Terraform workflow.`
+
+**Monitoring and Logging**
+1. `Using tools to monitor the app and system during release, such as Prometheus, New Relic, appdynamic, send alerts with XMeter, Alert Manager, OpsGenie, etc.`
+2. `Using cloudwatch, ELK, Splunk, New Relic, etc, for logging analysis`
+
+**Security and Resilience**
+1. Using vault or secret manager for secret and configuration management
+2. IF using EKS, configure PDB, topologyspreadconstrain, HPA for your container.
